@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#eef7f6" />
+  <meta name="description" content="Dollars Lab 프로젝트 문서" />
+  <title>Dollars Lab · Project</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body data-page="reader">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./">← Dollars Lab</a>
+      <nav class="top-actions">
+        <a id="raw-link" href="https://github.com/Dollars-Archive/Dollars-Lab" target="_blank" rel="noreferrer">원문 보기 ↗</a>
+        <a href="https://github.com/Dollars-Archive/Dollars-Lab" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="reader-shell">
+    <section class="reader-hero">
+      <p class="eyebrow">DOLLARS LAB · PROJECT</p>
+      <h1 id="page-title">프로젝트 문서</h1>
+      <p id="page-path" class="page-path"></p>
+    </section>
+
+    <div class="reader-layout">
+      <aside class="toc-card">
+        <div class="toc-title">목차</div>
+        <nav id="toc" class="toc"></nav>
+      </aside>
+      <article class="reader-card">
+        <div id="status" class="status">문서를 불러오는 중…</div>
+        <div id="reader" class="reader" hidden></div>
+      </article>
+    </div>
+  </main>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
