@@ -16,6 +16,11 @@ function projectFileFromHref(href) {
   return href;
 }
 
+function markdownLinkHref(value) {
+  const match = value.match(/^\[[^\]]+\]\((https?:\/\/[^)]+)\)$/);
+  return match ? match[1] : '';
+}
+
 function parseProjects(markdown) {
   const start = markdown.indexOf('## Projects');
   if (start < 0) return [];
@@ -30,7 +35,14 @@ function parseProjects(markdown) {
     if (!match) return null;
     const file = projectFileFromHref(match[2]);
     if (!/^projects\/[A-Za-z0-9._\/-]+\.md$/.test(file) || file.includes('..')) return null;
-    return { title: match[1], file, platform: cells[1], description: cells[2], status: cells[3] };
+    return {
+      title: match[1],
+      file,
+      platform: cells[1],
+      description: cells[2],
+      status: cells[3],
+      releaseUrl: cells[4] ? markdownLinkHref(cells[4]) : '',
+    };
   }).filter(Boolean);
 }
 
@@ -135,6 +147,20 @@ function resolveRelativeAssets(root, file) {
   root.querySelectorAll('a[href^="http"]').forEach((a) => { a.target = '_blank'; a.rel = 'noreferrer'; });
 }
 
+async function hydrateReleaseLink(file, releaseLink) {
+  if (!releaseLink) return;
+  try {
+    const response = await fetch(`${RAW_BASE}README.md?t=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const project = parseProjects(await response.text()).find((item) => item.file === file);
+    if (!project?.releaseUrl) return;
+    releaseLink.href = project.releaseUrl;
+    releaseLink.hidden = false;
+  } catch (error) {
+    console.warn('Release link unavailable:', error);
+  }
+}
+
 async function loadReader() {
   const params = new URLSearchParams(location.search);
   const file = params.get('file') || '';
@@ -143,6 +169,7 @@ async function loadReader() {
   const title = document.getElementById('page-title');
   const pathEl = document.getElementById('page-path');
   const rawLink = document.getElementById('raw-link');
+  const releaseLink = document.getElementById('release-link');
 
   if (!/^projects\/[A-Za-z0-9._\/-]+\.md$/.test(file) || file.includes('..')) {
     status.textContent = '허용되지 않은 문서 경로입니다.';
@@ -151,6 +178,7 @@ async function loadReader() {
 
   pathEl.textContent = file;
   rawLink.href = BLOB_BASE + file;
+  hydrateReleaseLink(file, releaseLink);
 
   try {
     const response = await fetch(`${RAW_BASE}${file}?t=${Date.now()}`, { cache: 'no-store' });
