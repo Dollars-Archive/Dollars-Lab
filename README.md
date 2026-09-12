@@ -4,6 +4,11 @@
 
 Android APK, Windows 유틸리티, 게임 관련 도구, 자동화 스크립트 등 특정 플랫폼이나 분야에 제한을 두지 않습니다.
 
+> [!TIP]
+> 읽기 좋은 웹 버전은 **[Dollars Lab 프로젝트 아카이브](https://dollars-archive.github.io/Dollars-Lab/)**에서 볼 수 있습니다.
+>
+> 각 프로젝트의 README는 저장소에서 단일 원본으로 유지하고, 기본 사용자 링크는 GitHub Pages 프로젝트 뷰어를 사용합니다.
+
 > [!NOTE]
 > 완성도 높은 정식 제품 저장소라기보다 개인적으로 만든 작은 도구와 실험 프로젝트를 정리해 두는 공간입니다.
 
@@ -11,13 +16,17 @@ Android APK, Windows 유틸리티, 게임 관련 도구, 자동화 스크립트 
 
 | 프로젝트 | 플랫폼 | 설명 | 상태 |
 |---|---|---|---|
-| [Odin2 Portal HOME Screenshot Helper](projects/odin2-portal-home-screenshot/README.md) | Android / Odin2 Portal | HOME 버튼을 스크린샷 버튼으로 사용할 수 있게 해주는 APK | ✅ 사용 가능 |
+| [Odin2 Portal HOME Screenshot Helper](https://dollars-archive.github.io/Dollars-Lab/project.html?file=projects%2Fodin2-portal-home-screenshot%2FREADME.md) | Android / Odin2 Portal | HOME 버튼을 스크린샷 버튼으로 사용할 수 있게 해주는 APK | ✅ 사용 가능 |
 
 ## 저장소 구조
 
 ```text
 .
 ├─ README.md
+├─ docs/
+│  ├─ index.html
+│  ├─ project.html
+│  └─ assets/
 └─ projects/
    └─ odin2-portal-home-screenshot/
       ├─ README.md
@@ -30,9 +39,10 @@ Android APK, Windows 유틸리티, 게임 관련 도구, 자동화 스크립트 
 
 - 프로젝트마다 설치법, 사용법, 지원 환경, 주의사항을 각각 기록합니다.
 - 플랫폼이나 장르보다 **프로그램 단위**로 구분합니다.
+- 프로젝트 README는 관리용 단일 원본으로 유지하고, 사용자에게는 Pages 뷰어를 기본으로 보여줍니다.
 - 더 이상 사용하지 않는 프로젝트는 삭제하기보다 필요하면 `archive/`로 이동해 기록을 남깁니다.
 - 개인 정보, 인증 정보, 키 파일 등 공개하면 안 되는 자료는 저장하지 않습니다.
 
 ---
 
-이 저장소의 각 프로젝트는 개인 취미 및 편의 목적으로 제작한 도구입니다. 프로젝트별 지원 범위와 주의사항은 각 README를 확인해 주세요.
+이 저장소의 각 프로젝트는 개인 취미 및 편의 목적으로 제작한 도구입니다. 프로젝트별 지원 범위와 주의사항은 각 프로젝트 문서를 확인해 주세요.
