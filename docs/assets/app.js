@@ -6,6 +6,16 @@ function slugify(text) {
   return text.toLowerCase().trim().replace(/[`*_~]/g, '').replace(/[^\p{L}\p{N}\s-]/gu, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') || 'section';
 }
 
+function projectFileFromHref(href) {
+  if (/^https?:\/\//.test(href)) {
+    try {
+      const url = new URL(href);
+      return url.searchParams.get('file') || '';
+    } catch { return ''; }
+  }
+  return href;
+}
+
 function parseProjects(markdown) {
   const start = markdown.indexOf('## Projects');
   if (start < 0) return [];
@@ -18,7 +28,9 @@ function parseProjects(markdown) {
     if (cells.length < 4) return null;
     const match = cells[0].match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (!match) return null;
-    return { title: match[1], file: match[2], platform: cells[1], description: cells[2], status: cells[3] };
+    const file = projectFileFromHref(match[2]);
+    if (!/^projects\/[A-Za-z0-9._\/-]+\.md$/.test(file) || file.includes('..')) return null;
+    return { title: match[1], file, platform: cells[1], description: cells[2], status: cells[3] };
   }).filter(Boolean);
 }
 
