@@ -37,9 +37,18 @@ code, pre { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 }
 .brand { text-decoration: none; font-weight: 900; letter-spacing: -.03em; }
 .top-link, .top-actions { color: var(--muted); font-size: 14px; }
-.top-actions { display: flex; gap: 16px; }
+.top-actions { display: flex; gap: 10px; align-items: center; }
 .top-actions a, .top-link { text-decoration: none; }
 .top-actions a:hover, .top-link:hover { color: var(--accent); }
+.top-actions .release-link {
+  padding: 7px 11px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 900;
+}
+.top-actions .release-link:hover { background: var(--accent); color: #fff; }
 .shell, .reader-shell { max-width: 1180px; margin: 0 auto; padding: 54px 22px 88px; }
 .hero, .reader-hero { padding: 24px 0 40px; }
 .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 12px; font-weight: 900; letter-spacing: .16em; }
@@ -108,7 +117,9 @@ code, pre { font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
 @media (max-width: 620px) {
   .shell, .reader-shell { padding: 32px 12px 60px; }
   .topbar-inner { padding: 11px 13px; }
-  .top-actions a:first-child { display: none; }
+  .top-actions #raw-link { display: none; }
+  .top-actions { gap: 8px; }
+  .top-actions .release-link { padding: 6px 9px; font-size: 12px; }
   .section-head { padding: 22px 18px 14px; flex-direction: column; align-items: flex-start; }
   .project-grid { padding: 0 18px 18px; }
   .panel, .reader-card { border-radius: 18px; }
