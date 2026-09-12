@@ -14,9 +14,9 @@ Android APK, Windows 유틸리티, 게임 관련 도구, 자동화 스크립트 
 
 ## Projects
 
-| 프로젝트 | 플랫폼 | 설명 | 상태 |
-|---|---|---|---|
-| [Odin2 Portal HOME Screenshot Helper](https://dollars-archive.github.io/Dollars-Lab/project.html?file=projects%2Fodin2-portal-home-screenshot%2FREADME.md) | Android / Odin2 Portal | HOME 버튼을 스크린샷 버튼으로 사용할 수 있게 해주는 APK | ✅ 사용 가능 |
+| 프로젝트 | 플랫폼 | 설명 | 상태 | Release / 다운로드 |
+|---|---|---|---|---|
+| [Odin2 Portal HOME Screenshot Helper](https://dollars-archive.github.io/Dollars-Lab/project.html?file=projects%2Fodin2-portal-home-screenshot%2FREADME.md) | Android / Odin2 Portal | HOME 버튼을 스크린샷 버튼으로 사용할 수 있게 해주는 APK | ✅ 사용 가능 | [v1.0.0 Release ↗](https://github.com/Dollars-Archive/Dollars-Lab/releases/tag/v1.0.0) |
 
 ## 저장소 구조
 
@@ -40,6 +40,8 @@ Android APK, Windows 유틸리티, 게임 관련 도구, 자동화 스크립트 
 - 프로젝트마다 설치법, 사용법, 지원 환경, 주의사항을 각각 기록합니다.
 - 플랫폼이나 장르보다 **프로그램 단위**로 구분합니다.
 - 프로젝트 README는 관리용 단일 원본으로 유지하고, 사용자에게는 Pages 뷰어를 기본으로 보여줍니다.
+- 배포 파일이 있는 프로젝트는 `Projects` 표의 **Release / 다운로드** 열에 해당 프로젝트의 최신 또는 대표 Release를 연결합니다.
+- 프로젝트 Pages 상단에도 같은 Release 링크를 표시해 문서를 읽다가 바로 다운로드 화면으로 이동할 수 있게 합니다.
 - 더 이상 사용하지 않는 프로젝트는 삭제하기보다 필요하면 `archive/`로 이동해 기록을 남깁니다.
 - 개인 정보, 인증 정보, 키 파일 등 공개하면 안 되는 자료는 저장하지 않습니다.
 
